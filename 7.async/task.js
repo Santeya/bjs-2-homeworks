@@ -34,10 +34,8 @@ class AlarmClock {
     }
 
     start() {
-        let checkTime = this.getCurrentFormattedTime();
-
-        function checkClock(phoneAlarm) {
-            if (checkTime === phoneAlarm.time) {
+        let checkClock = (phoneAlarm) => {
+            if (this.getCurrentFormattedTime() === phoneAlarm.time) {
                 phoneAlarm.callback();
             }
         }
@@ -66,14 +64,3 @@ class AlarmClock {
         this.alarmCollection = [];
     }
 }
-
-function testCase() {
-
-    let phoneAlarm = new AlarmClock();
-    phoneAlarm.addClock(phoneAlarm.getCurrentFormattedTime(), () => console.log('Пора вставать'), 1);
-
-
-    //phoneAlarm.addClock()
-
-
-}  
